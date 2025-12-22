@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aanya & Kairav's Wedding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #fdfbf7;
+            color: #2c2c2c;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #8b6f47;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #d4a574;
+        }
+
+        /* Hero Section */
+       .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(139, 111, 71, 0.3), rgba(212, 165, 116, 0.2)),
+                url('images/hero-bg.jpg'); background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            color: #fff;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 5em;
+            font-family: 'Palatino', serif;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .ampersand {
+            font-size: 0.8em;
+            font-style: italic;
+            color: #d4a574;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin: 20px 0;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 0.9em;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            color: #8b6f47;
+            margin-bottom: 20px;
+            font-family: 'Palatino', serif;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Events Section */
+        .events {
+            background: #fff;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        .event-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .event-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #f4e8d8 0%, #e8d4ba 100%);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20 L55 35 L70 35 L58 45 L63 60 L50 50 L37 60 L42 45 L30 35 L45 35 Z" fill="%23d4a574" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .event-details {
+            padding: 20px;
+        }
+
+        .event-name {
+            font-size: 2.5em;
+            color: #8b6f47;
+            margin-bottom: 15px;
+            font-family: 'Palatino', serif;
+        }
+
+        .event-date {
+            font-size: 1.3em;
+            color: #d4a574;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .event-info {
+            margin: 30px 0;
+        }
+
+        .info-item {
+            margin: 15px 0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #8b6f47;
+            display: inline-block;
+            width: 140px;
+        }
+
+        .dress-code-box {
+            background: linear-gradient(135deg, #fef9f3 0%, #f9f3ea 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #d4a574;
+        }
+
+        .dress-code-box h4 {
+            color: #8b6f47;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .color-dots {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .color-dot {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Our Story Section */
+        .our-story {
+            background: linear-gradient(to bottom, #fff 0%, #fef9f3 100%);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, #e8d4ba 0%, #d4a574 100%);
+            border-radius: 10px;
+        }
+
+        .story-text {
+            font-size: 1.15em;
+            line-height: 2;
+            color: #555;
+        }
+
+        .story-text p {
+            margin-bottom: 25px;
+        }
+
+        .couple-names-story {
+            font-size: 2em;
+            color: #8b6f47;
+            text-align: center;
+            margin: 40px 0;
+            font-family: 'Palatino', serif;
+            font-style: italic;
+        }
+
+        /* Photo Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            height: 300px;
+            background: linear-gradient(135deg, #f4e8d8 0%, #e8d4ba 50%, #d4a574 100%);
+            border-radius: 8px;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            height: 400px;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        /* Dress Code Section */
+        .dress-code-section {
+            background: #8b6f47;
+            color: #fff;
+            text-align: center;
+        }
+
+        .dress-code-section .section-title {
+            color: #fff;
+        }
+
+        .dress-code-section .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .dress-code-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .dress-card {
+            background: rgba(255,255,255,0.1);
+            padding: 40px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dress-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #d4a574;
+        }
+
+        .dress-card p {
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            background: linear-gradient(135deg, #fef9f3 0%, #f9f3ea 100%);
+            text-align: center;
+        }
+
+        .rsvp-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            background: #8b6f47;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .rsvp-btn:hover {
+            background: #6f5839;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 111, 71, 0.3);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #fff;
+        }
+
+        .faq-item {
+            background: #fef9f3;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #d4a574;
+        }
+
+        .faq-question {
+            font-size: 1.3em;
+            color: #8b6f47;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer {
+            font-size: 1.05em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c2c2c;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: #d4a574;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .event-card,
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .event-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) {
+                grid-column: span 1;
+            }
+
+            .dress-code-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+        }
+
+        /* RSVP Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            float: right;
+            font-size: 2em;
+            cursor: pointer;
+            color: #8b6f47;
+        }
+
+        .rsvp-form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #8b6f47;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e8d4ba;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4a574;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #8b6f47;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: #6f5839;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#story">Our Story</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>AANYA <span class="ampersand">&</span> KAIRAV</h1>
+            <p>Rooted in tradition, united in love</p>
+            <p style="font-size: 1.1em; margin-top: 30px;">March 15-17, 2026 | Mumbai, India</p>
+        </div>
+        <div class="scroll-indicator">↓ Scroll to explore</div>
+    </section>
+
+    <!-- Introduction -->
+    <section style="background: #fff; text-align: center; padding: 80px 20px;">
+        <h2 style="font-size: 2.5em; color: #8b6f47; margin-bottom: 30px; font-family: Palatino, serif; font-weight: 300;">
+            Join Us for Three Days of Celebration
+        </h2>
+        <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto; color: #666; line-height: 2;">
+            With hearts full of love and gratitude, we invite you to celebrate the beginning of our forever. 
+            Surrounded by the people who mean the most to us, we'll honour this special moment with joy, 
+            laughter, and the traditions that have shaped our journey.
+        </p>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <h2 class="section-title">The Celebrations</h2>
+        <p class="section-subtitle">Join us for a journey through tradition, music, and love</p>
+
+        <!-- Mehndi -->
+        <div class="event-card">
+        <div class="event-image" style="background-image: url('images/mehndi-ceremony.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="event-details">
+                <h3 class="event-name">Mehndi Ceremony</h3>
+                <p class="event-date">March 15, 2026 • 3:00 PM - 7:00 PM</p>
+                
+                <div class="event-info">
+                    <div class="info-item">
+                        <span class="info-label">Venue:</span>
+                        Bride's Family Garden, 12 Mira Bhayandar, Mumbai 79887
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">What to Expect:</span>
+                        A joyful afternoon where intricate henna designs adorn the bride, accompanied by music, dancing, and traditional snacks.
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Parking:</span>
+                        Valet available | Uber code: AANYAKAIRAV15
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Menu:</span>
+                        Vegetarian snacks & beverages (nut-free options available)
+                    </div>
+                </div>
+
+                <div class="dress-code-box">
+                    <h4>Dress Code: Bright & Vibrant</h4>
+                    <p>Traditional Indian attire encouraged - colorful kurtas, lehengas, or sarees</p>
+                    <div class="color-dots">
+                        <div class="color-dot" style="background: #FFD700;"></div>
+                        <div class="color-dot" style="background: #FF6B9D;"></div>
+                        <div class="color-dot" style="background: #4ECDC4;"></div>
+                        <div class="color-dot" style="background: #FF6B35;"></div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95em; color: #666;">Please avoid white or black</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sangeet -->
+        <div class="event-card">
+        <div class="event-image" style="background-image: url('images/sangeet-night.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="event-details">
+                <h3 class="event-name">Sangeet Night</h3>
+                <p class="event-date">March 16, 2026 • 7:00 PM - 12:00 AM</p>
+                
+                <div class="event-info">
+                    <div class="info-item">
+                        <span class="info-label">Venue:</span>
+                        Sea Green Hotel, Apollo Bunder
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">What to Expect:</span>
+                        An energetic musical evening with family performances, Bollywood music, and plenty of dancing!
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Transport:</span>
+                        Hotel valet | Shuttle from Apollo Bunder at 8:20 PM
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Menu:</span>
+                        Dinner buffet (Veg & Non-veg, Gluten-free & Jain options)
+                    </div>
+                </div>
+
+                <div class="dress-code-box">
+                    <h4>Dress Code: Glamorous Evening Wear</h4>
+                    <p>Semi-formal to formal Indian or Western attire</p>
+                    <div class="color-dots">
+                        <div class="color-dot" style="background: #8B008B;"></div>
+                        <div class="color-dot" style="background: #DC143C;"></div>
+                        <div class="color-dot" style="background: #FFD700;"></div>
+                        <div class="color-dot" style="background: #0047AB;"></div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95em; color: #666;">Avoid white (reserved for bride's family)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wedding Ceremony -->
+        <div class="event-card">
+        <div class="event-image" style="background-image: url('images/wedding-ceremony.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="event-details">
+                <h3 class="event-name">Wedding Ceremony</h3>
+                <p class="event-date">March 17, 2026 • 10:00 AM - 2:00 PM</p>
+                
+                <div class="event-info">
+                    <div class="info-item">
+                        <span class="info-label">Venue:</span>
+                        Kasbaah Garden and Restaurant,Kalyan, Mumbai 638228
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">What to Expect:</span>
+                        The sacred ceremony where we exchange the vows under the mandap. Key moments include the Baraat (10:00 AM), Varmala (10:45 AM), and the seven sacred Pheras (11:45 AM).
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Livestream:</span>
+                        Available at wedding.jckfrut.co/aanya-kairav
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Guest Etiquette:</span>
+                        Please remain seated during the Pheras, silence your phones, and remove your shoes before entering mandap area
+                    </div>
+                </div>
+
+                <div class="dress-code-box">
+                    <h4>Dress Code: Traditional Formal</h4>
+                    <p>Traditional Indian attire is required - the sarees, lehengas, sherwanis, kurta pajamas</p>
+                    <div class="color-dots">
+                        <div class="color-dot" style="background: #DC143C;"></div>
+                        <div class="color-dot" style="background: #FF1493;"></div>
+                        <div class="color-dot" style="background: #FFD700;"></div>
+                        <div class="color-dot" style="background: #FF8C00;"></div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95em; color: #666;">Please avoid black or white | Covered shoulders recommended</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reception -->
+        <div class="event-card">
+        <div class="event-image" style="background-image: url('images/reception-party.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="event-details">
+                <h3 class="event-name">Wedding Reception</h3>
+                <p class="event-date">March 17, 2026 • 7:00 PM - 11:30 PM</p>
+                
+                <div class="event-info">
+                    <div class="info-item">
+                        <span class="info-label">Venue:</span>
+                        BORA BORA Juhu 4th Floor, 58/A, Juhu
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">What to Expect:</span>
+                        An elegant evening with dinner, toasts, cake cutting, and dancing. First dance at 8:30 PM,The photo booth opens at 8:00 PM.
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Transport:</span>
+                        Valet parking | Return shuttles until 12:30 AM
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Menu:</span>
+                        Full course dinner (Veg/Non-veg/Vegan) | Premium bar | Allergen cards at buffet
+                    </div>
+                </div>
+
+                <div class="dress-code-box">
+                    <h4>Dress Code: Cocktail Attire</h4>
+                    <p>Indian fusion or Western cocktail attire - elegant and celebratory</p>
+                    <div class="color-dots">
+                        <div class="color-dot" style="background: #000000;"></div>
+                        <div class="color-dot" style="background: #0047AB;"></div>
+                        <div class="color-dot" style="background: #50C878;"></div>
+                        <div class="color-dot" style="background: #FFD700;"></div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95em; color: #666;">All colors welcome!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="our-story">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle">A journey of friendship, connection, and growing love</p>
+
+        <div class="story-content">
+        <div class="story-image" style="background-image: url('images/story-photo.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="story-text">
+                <p>
+                    Our story began at a mutual friend's Diwali celebration, a vibrant evening filled with lights, 
+                    laughter, and the warmth of the family. In the middle of it all, Kairav accidentally stepped on 
+                    Aanya's lehenga. He was mortified and kept apologizing, trying to make it right with charm 
+                    and humor.
+                </p>
+                <p>
+                    What started as an awkward moment turned into a conversation that lasted the whole night. 
+                    We laughed, teased each other, and found an unexpected ease in each other's company. 
+                    That one evening led to many more weekend meet-ups, late-night conversations, and countless 
+                    cups of tea.
+                </p>
+                <p>
+                    Now, we're here, building a life together and grateful on how it all began. Join us as we 
+                    celebrate this next beautiful chapter, surrounded by the people who have been part of our journey.
+                </p>
+            </div>
+        </div>
+
+        <p class="couple-names-story">"May our love never be lost, only kept, nurtured, and treasured forever."</p>
+
+        <!-- Photo Gallery -->
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery-1.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="gallery-item" style="background-image: url('images/gallery-2.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="gallery-item" style="background-image: url('images/gallery-3.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="gallery-item" style="background-image: url('images/gallery-4.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="gallery-item" style="background-image: url('images/gallery-5.jpg'); background-size: cover; background-position: center;"></div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section id="dress-code" class="dress-code-section">
+        <h2 class="section-title">Colour Palette & Dress Code</h2>
+        <p class="section-subtitle">Embrace the colors and traditions of our celebration</p>
+
+        <div class="dress-code-cards">
+            <div class="dress-card">
+                <h3>Mehndi</h3>
+                <p>Bright, playful colors</p>
+                <p style="margin-top: 10px;">Yellows, pinks, turquoise, and oranges</p>
+            </div>
+            <div class="dress-card">
+                <h3>Sangeet</h3>
+                <p>Rich, glamorous tones</p>
+                <p style="margin-top: 10px;">Jewel tones, purples, ruby, emerald</p>
+            </div>
+            <div class="dress-card">
+                <h3>Wedding</h3>
+                <p>Traditional elegance</p>
+                <p style="margin-top: 10px;">Reds, golds, oranges, and pinks</p>
+            </div>
+            <div class="dress-card">
+                <h3>Reception</h3>
+                <p>Sophisticated cocktail</p>
+                <p style="margin-top: 10px;">All colors welcome - we don't mind boldness!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp-section">
+        <h2 class="section-title">RSVP</h2>
+        <p class="section-subtitle">
+            We would be honored to celebrate with you<br>
+            Please respond by February 15, 2026
+        </p>
+        <a href="#" class="rsvp-btn" onclick="openModal(); return false;">RSVP Now</a>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Can I attend all the events?</div>
+            <div class="faq-answer">
+                Yes! We'd love to have you for all three days of celebration. Each event offers a unique 
+                experience of our culture and love story.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What if I can only attend some events?</div>
+            <div class="faq-answer">
+                We completely okay! Please indicate which events you'll attend when you RSVP. 
+                Your presence at any of our celebrations means the world to us.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Where should I stay?</div>
+            <div class="faq-answer">
+                We recommend BORA BORA Juhu (use code AKWEDDING for discount), Kasbaah Garden and Restaurant, 
+                or Sea Green Hotel. All are within 15 minutes of our venues.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I bring a plus one?</div>
+            <div class="faq-answer">
+                Yes! Please include their name when you RSVP so that we can plan accordingly.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is there a livestream for the ceremony?</div>
+            <div class="faq-answer">
+                Yes, the wedding ceremony will be livestreamed for guests who cannot attend in person. 
+                The link will be sent to registered guests before the event.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Where can I share the photos?</div>
+            <div class="faq-answer">
+                Use #AanyaKairavForever on Instagram or upload to our gallery at photos.wedding.jckfrut.co/aanya-kairav
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you have a gift registry?</div>
+            <div class="faq-answer">
+                Your presence is the greatest gift! If you wish to honor us with another gift, 
+                we have an Amazon Registry and Honeymoon Fund. Links will be sent with your RSVP confirmation.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3 style="font-size: 2em; margin-bottom: 20px; color: #d4a574; font-family: Palatino, serif;">
+            We Can't Wait to Celebrate With You!
+        </h3>
+        <p style="margin: 30px 0;">For questions or special accommodations:</p>
+        <p><strong>Bride's Family:</strong> Chandan Sharma | +91 98858 40916 | sharma.family@email.com</p>
+        <p><strong>Groom's Family:</strong> Faiz Ali | +91 9875 02271 | ali.family@email.com</p>
+        <p><strong>Wedding Coordinator:</strong> Zameera Events | +91 9818 50262 | coordinator@zameeraevents.com</p>
+        
+        <p style="margin-top: 50px; font-size: 0.9em; opacity: 0.6;">
+            made with love © 2026 Aanya & Kairav
+        </p>
+    </footer>
+
+    <!-- RSVP Modal -->
+    <div id="rsvpModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2 style="color: #8b6f47; text-align: center; margin-bottom: 30px;">RSVP to Our Wedding</h2>
+            
+            <form class="rsvp-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" placeholder="+91 98000 0000">
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <select>
+                        <option>1 Guest</option>
+                        <option>2 Guests</option>
+                        <option>3 Guests</option>
+                        <option>4 Guests</option>
+                        <option>5+ Guests</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Which events will you attend? *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mehndi" value="mehndi">
+                            <label for="mehndi">Mehndi (March 15)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sangeet" value="sangeet">
+                            <label for="sangeet">Sangeet (March 16)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="wedding" value="wedding">
+                            <label for="wedding">Wedding (March 17 AM)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="reception" value="reception">
+                            <label for="reception">Reception (March 17 PM)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Dietary Requirements</label>
+                    <input type="text" placeholder="E.g., Vegetarian, Vegan, Gluten-free, Allergies">
+                </div>
+
+                <div class="form-group">
+                    <label>Will you need livestream access?</label>
+                    <select>
+                        <option>No, I'll attend in person</option>
+                        <option>Yes, please send me the link</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Message for the Couple</label>
+                    <textarea rows="4" placeholder="Share your wishes..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit RSVP</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('rsvpModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('rsvpModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('rsvpModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your RSVP! We look forward to celebrating with you. 💕');
+            closeModal();
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.event-card, .story-content, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
